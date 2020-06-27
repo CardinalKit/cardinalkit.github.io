@@ -1,0 +1,10 @@
+{
+  "docs": {
+    "Getting Started": ["getting_started", "setup_cloud", "web_app", "philosophy"],
+    "Modules": ["tut_set_up"],
+    "Reference": ["surveys"]
+  },
+  "docs-other": {
+    "First Category": ["doc4", "doc5"]
+  }
+}
