@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Generate CardinalKit App · CardinalKit</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;img src=&quot;assets/doctors.svg&quot; width=&quot;400&quot;&gt;"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Generate CardinalKit App · CardinalKit"/><meta property="og:type" content="website"/><meta property="og:url" content="https://cardinalkit.org/"/><meta property="og:description" content="&lt;img src=&quot;assets/doctors.svg&quot; width=&quot;400&quot;&gt;"/><meta property="og:image" content="https://cardinalkit.org/img/main.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://cardinalkit.org/img/main.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://cardinalkit.org/blog/atom.xml" title="CardinalKit Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://cardinalkit.org/blog/feed.xml" title="CardinalKit Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="CardinalKit"/><h2 class="headerTitleWithLogo">CardinalKit</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive siteNavItemActive"><a href="/docs/getting_started" target="_self">Docs</a></li><li class=""><a href="/community" target="_self">Community</a></li><li class=""><a href="/resources" target="_self">Resources</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Getting Started</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/getting_started">Generate CardinalKit App</a></li><li class="navListItem"><a class="navItem" href="/docs/setup_cloud">Set Up Application Infrastructure</a></li><li class="navListItem"><a class="navItem" href="/docs/auth">Alternative Authentication Methods</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Reference</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/ckconfig">App Customization Guide</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Open Source</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/contribute">Contributing to CardinalKit</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Generate CardinalKit App</h1></header><article><div><span><p><img src="assets/doctors.svg" width="400"></p>
+<p>Thanks for choosing CardinalKit! CardinalKit minimizes your research costs and time required to survey individuals by providing your team with a system that automatically takes care of building an app and storing data. You don't even need to know how to code. The goal of this guide is to get your cloud-enabled research app up and running with minimal effort on your part.</p>
+<p>Prior to creating a CardinalKit project, you will need to have access to a computer running MacOS.</p>
+<h2><a class="anchor" aria-hidden="true" id="create-a-cardinalkit-project"></a><a href="#create-a-cardinalkit-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a CardinalKit project</h2>
+<p><br><img src="assets/build.svg" width="400"><br></p>
+<p>It's really easy to get started with CardinalKit. This guide will help you set up our example app in under 30 minutes.</p>
+<h3><a class="anchor" aria-hidden="true" id="1-install-xcode-and-cocoapods"></a><a href="#1-install-xcode-and-cocoapods" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Install Xcode and Cocoapods</h3>
+<p>iOS apps are natively built in Xcode, an app available on the Apple Mac App Store. Download the most recent version of Xcode available, if you have not already. We recommend having at least Xcode v11.2.1.</p>
+<p>To find your Xcode version, you can type <code>system_profiler SPDeveloperToolsDataType</code> in the command line.</p>
+<p>You will also need to install Cocoapods, a package manager for iOS apps. First, install Homebrew by running the following command in your terminal.</p>
+<pre><code class="hljs">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;
+</code></pre>
+<p>Then, run <code>brew install cocoapods</code>.</p>
+<p>You're now ready to get started with CardinalKit!</p>
+<h3><a class="anchor" aria-hidden="true" id="2-download-the-cardinalkit-template-project"></a><a href="#2-download-the-cardinalkit-template-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Download the CardinalKit Template Project</h3>
+<p>Our open-source project is available on <a href="https://github.com/CardinalKit/CardinalKit" target="\_blank">Github</a>. Download it by clicking &quot;Clone or Download&quot; &gt; &quot;Download Zip&quot;. You may havee to resize your browser to see the download button.</p>
+<p><img src="/docs/assets/github.png" alt="Github"></p>
+<p>If that doesn't work, <a href="https://github.com/CardinalKit/CardinalKit/archive/master.zip">click here</a> to download the file directly.</p>
+<h3><a class="anchor" aria-hidden="true" id="3-open-the-project"></a><a href="#3-open-the-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Open the Project</h3>
+<p>Open the folder once it is finished downloading. Navigate to the &quot;CardinalKit.xcworkspace&quot; file located in the &quot;CardinalKit-Example&quot; folder within the download. You should see something like this. Open the &quot;CardinalKit.xcworkspace&quot; file. Xcode should automatically launch with the project open. This is a sample app that you will customize to meet your needs. Xcode will start indexing your project and will display <code>Indexing | Processing Files</code> for a few minutes in the top bar. You don't need to wait for this process to complete in order to continue with this guide.</p>
+<p><img src="/docs/assets/folder.png" alt="folder"></p>
+<p>If a pop-up indicating that you opened a file downloaded from online appears, select &quot;Open&quot;.</p>
+<p><br><img src="assets/downloaded.png" width="500"><br></p>
+<p>At some point during this process, the project may ask to request a part of your keychain with a chain of intrusive popups. In this case, type in your password and click &quot;Always Allow&quot;. Xcode and this project is entirely local so this is safe.</p>
+<h3><a class="anchor" aria-hidden="true" id="4-configure-the-project"></a><a href="#4-configure-the-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Configure the Project</h3>
+<p>Click on the main root project in the sidebar and change the iOS bundle ID and team to match your project. Remember the bundle ID for later since it will be needed to connect your database to the app. It should be of the form &quot;com.[TEAM-NAME].[PROJECT-NAME]&quot;. <strong>Write down this bundle ID for later</strong> as it will be crucial in setting up the database component of the app.</p>
+<p><br><img src="assets/bundle.png" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" width="100%"><br></p>
+<p>If you get a status message that states &quot;Unable to log in with account '[YOUR EMAIL]'&quot; or &quot;No profiles for '[YOUR BUNDLE ID]' were found&quot;, don't worry as your app should still compile and you should continue with this guide.</p>
+<p>Once that is complete, your &quot;Signing and Capabilities&quot; page should look like this (with your team and project names):</p>
+<p><br><img style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" src="assets/updated_bundle.png" width="500"><br></p>
+<p>Finally, we need to set our app to use Swift 4.2. Select &quot;Pods&quot; (in the left hand sidebar) &gt; &quot;CardinalKit&quot; (tucked away in a drawer indicated by the green box) &gt; &quot;Build Settings&quot; &gt; &quot;Swift Compiler Language&quot; &gt; &quot;Swift Language Version&quot; &gt; &quot;Swift 4.2&quot;. This process is illustrated below. You will have to scroll a bit to get to this part of the file.</p>
+<p><br><img src="assets/swift.png" width="100%"><br></p>
+<h3><a class="anchor" aria-hidden="true" id="5-wait-for-reindexing-to-complete"></a><a href="#5-wait-for-reindexing-to-complete" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Wait for Reindexing to Complete</h3>
+<p>Xcode takes a while to open a project. Wait until Xcode is finished indexing the project. At the top of Xcode, there will be light blue progress bar showing this. Once it is complete, and no red errors pop up, we can run the project. This can take anywhere from 5 to 10 minutes.</p>
+<p><img src="/docs/assets/indexing.png" alt="downloaded"></p>
+<h3><a class="anchor" aria-hidden="true" id="a-quick-aside-no-such-module-researchkit-and-other-errors"></a><a href="#a-quick-aside-no-such-module-researchkit-and-other-errors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>A Quick Aside: <code>No such module ResearchKit</code> and Other Errors</h3>
+<p>Your project may show several warnings indicated by a yellow triangle &quot;⚠️&quot; but that is fine. However, a red octogon with an exclamation mark indicates an error which prevents your app from running. One common issue many CardinalKit developers hit at this stage is an error <code>No such module ResearchKit</code> and they can't find a way to launch the sample app.</p>
+<p>There are two ways to get around this issue:</p>
+<ol>
+<li><em>Using <code>git clone</code>:</em> clone the desired branch from Github with the following syntax in your shell: <code>git clone --recurse-submodules &lt;the_GitHub_url&gt;</code>. A common issue with prepackaged modules (in our case Firebase, ResearchKit, and CardinalKit) is that a simple download may install a reference to the module rather than the module itself.</li>
+<li><em>Using <code>pod</code>:</em> The fundamental issue in the app is that the modules (referenced via Cocoapods) are not actually installed. The solution is to navigate to the folder with the <code>Podfile</code> in the sample app using the command line (a good tutorial for those who are less familiar <a href="https://lifehacker.com/a-command-line-primer-for-beginners-5633909">here</a>). In the directory, run <code>pod update</code> and then run <code>pod install</code>. Building ResearchKit on your own device requires <a href="https://git-lfs.github.com"><code>git-lfs</code></a>. The best way to install this is through <a href="https://brew.sh">Homebrew</a> by running <code>brew install git-lfs</code>. If it is your first time building ResearchKit from source, it may take anywhere from 5-20 minutes to fully install. The modules should be fully built now.</li>
+<li><em>If all else fails:</em> a common panacea for Xcode related errors is cleaning the build folder and rerunning the application. Hit Cmd+Shift+K to clean the build folder, and try rebuilding the sample app.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="6-test-app-to-see-if-it-works"></a><a href="#6-test-app-to-see-if-it-works" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Test app to see if it works</h3>
+<p>Specify the target for deployment. Select either your phone (if it is plugged in) or pick a device to simulate (we recommend iPhone 8). Press the &quot;Play&quot; button, shown in green below to run the app in the simulator. The first time you build the app, it will take 5 to 10 minutes due to it having to load all of the frameworks for the first time.</p>
+<p>When the simulator boots up and opens up the app, you may be faced with a white screen for a few seconds to a minute. This is normal for the simulator on the first run of the app. Your project may show several warnings indicated by a yellow triangle &quot;⚠️&quot; but that is fine.</p>
+<p><img src="/docs/assets/set_target.png" alt="downloaded"></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/docs/setup_cloud"><span>Set Up Application Infrastructure</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#create-a-cardinalkit-project">Create a CardinalKit project</a><ul class="toc-headings"><li><a href="#1-install-xcode-and-cocoapods">1. Install Xcode and Cocoapods</a></li><li><a href="#2-download-the-cardinalkit-template-project">2. Download the CardinalKit Template Project</a></li><li><a href="#3-open-the-project">3. Open the Project</a></li><li><a href="#4-configure-the-project">4. Configure the Project</a></li><li><a href="#5-wait-for-reindexing-to-complete">5. Wait for Reindexing to Complete</a></li><li><a href="#a-quick-aside-no-such-module-researchkit-and-other-errors">A Quick Aside: <code>No such module ResearchKit</code> and Other Errors</a></li><li><a href="#6-test-app-to-see-if-it-works">6. Test app to see if it works</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="CardinalKit" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/getting_started">Getting Started</a><a href="/resources">Resources</a></div><div><h5>Community</h5><a href="https://github.com/CardinalKit/CardinalKit/">GitHub</a><a href="http://biodesign.stanford.edu/">Byers Center for Biodesign</a><a href="/community">Community</a></div></section><section class="copyright">Copyright © 2021 CardinalKit</section></footer></div></body></html>

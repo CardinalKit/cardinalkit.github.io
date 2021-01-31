@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Contributing to CardinalKit · CardinalKit</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Hey! 👋"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Contributing to CardinalKit · CardinalKit"/><meta property="og:type" content="website"/><meta property="og:url" content="https://cardinalkit.org/"/><meta property="og:description" content="Hey! 👋"/><meta property="og:image" content="https://cardinalkit.org/img/main.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://cardinalkit.org/img/main.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://cardinalkit.org/blog/atom.xml" title="CardinalKit Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://cardinalkit.org/blog/feed.xml" title="CardinalKit Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="CardinalKit"/><h2 class="headerTitleWithLogo">CardinalKit</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/getting_started" target="_self">Docs</a></li><li class=""><a href="/community" target="_self">Community</a></li><li class=""><a href="/resources" target="_self">Resources</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Open Source</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/getting_started">Generate CardinalKit App</a></li><li class="navListItem"><a class="navItem" href="/docs/setup_cloud">Set Up Application Infrastructure</a></li><li class="navListItem"><a class="navItem" href="/docs/auth">Alternative Authentication Methods</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Reference</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/ckconfig">App Customization Guide</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Open Source</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/contribute">Contributing to CardinalKit</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Contributing to CardinalKit</h1></header><article><div><span><p>Hey! 👋</p>
+<p>We're super excited that you want to help out with CardinalKit! We're currently a relatively small team hoping to make a big impact on the digital health community. Our technical stack is primarily composed of Swift and relies on the <a href="https://developer.apple.com/health-fitness/">HealthKit</a> and <a href="https://www.researchandcare.org">ResearchKit</a> open source libraries. Their home pages are a great place to start gaining a better understanding of the type of problems we're trying to build for.</p>
+<p>There is currently a <a href="https://github.com/CardinalKit/CardinalKit/issues">feature list</a> which we've compiled here on Github. If you have any additions you would like to make to it, please feel free to <a href="https://github.com/CardinalKit/CardinalKit/issues/new/choose">add them</a>!</p>
+<p>Some action times to get you started:</p>
+<ul>
+<li>First, <a href="mailto:vnshenoy@stanford.edu">contact us</a> regarding what you want to build. We just want to make sure no one else is currently working on the same feature. Also, leave a comment on the issue so we know you're interested in it.</li>
+<li>If you already know what you want to work on, fork our CardinalKit repository and create the changes you want to see.</li>
+<li>If you're not sure what to work on or feel that you need some guidance, either browse our <a href="https://github.com/CardinalKit/CardinalKit/issues">feature list</a> and find something you're passionate about or <a href="mailto:vnshenoy@stanford.edu">let us know</a>! We would be more than happy to help you find a project that matches your skill level and goals.</li>
+</ul>
+<p>Everytime you submit code for review through Github, leave us a <a href="www.loom.com">Loom</a> so we can better understand the features and how you implemented them in a more fun and personal way!</p>
+<iframe width="600" height="400" src="https://www.loom.com/embed/816327ebda114d3c91cf699e355f68dc" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p style="text-align: center; color: #636e72; padding-top: 10px;"><em>A sample Loom</em></p><br>
+<p>As always, if you have any questions, feel free to <a href="mailto:vnshenoy@stanford.edu">reach out</a>!</p>
+<p>The CardinalKit Team 🎉</p>
+<p><img src="assets/logo.png" width="200"></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/ckconfig"><span class="arrow-prev">← </span><span>App Customization Guide</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="CardinalKit" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/getting_started">Getting Started</a><a href="/resources">Resources</a></div><div><h5>Community</h5><a href="https://github.com/CardinalKit/CardinalKit/">GitHub</a><a href="http://biodesign.stanford.edu/">Byers Center for Biodesign</a><a href="/community">Community</a></div></section><section class="copyright">Copyright © 2021 CardinalKit</section></footer></div></body></html>

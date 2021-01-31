@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Alternative Authentication Methods · CardinalKit</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="By default, CardinalKit uses Sign in with Apple. If you are interested in using email and password authentication or passwordless login, keep on reading."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Alternative Authentication Methods · CardinalKit"/><meta property="og:type" content="website"/><meta property="og:url" content="https://cardinalkit.org/"/><meta property="og:description" content="By default, CardinalKit uses Sign in with Apple. If you are interested in using email and password authentication or passwordless login, keep on reading."/><meta property="og:image" content="https://cardinalkit.org/img/main.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://cardinalkit.org/img/main.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://cardinalkit.org/blog/atom.xml" title="CardinalKit Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://cardinalkit.org/blog/feed.xml" title="CardinalKit Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="CardinalKit"/><h2 class="headerTitleWithLogo">CardinalKit</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/getting_started" target="_self">Docs</a></li><li class=""><a href="/community" target="_self">Community</a></li><li class=""><a href="/resources" target="_self">Resources</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Getting Started</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/getting_started">Generate CardinalKit App</a></li><li class="navListItem"><a class="navItem" href="/docs/setup_cloud">Set Up Application Infrastructure</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/auth">Alternative Authentication Methods</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Reference</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/ckconfig">App Customization Guide</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Open Source</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/contribute">Contributing to CardinalKit</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Alternative Authentication Methods</h1></header><article><div><span><p>By default, CardinalKit uses Sign in with Apple. If you are interested in using email and password authentication or passwordless login, keep on reading.</p>
+<h2><a class="anchor" aria-hidden="true" id="setting-up-email-and-password-authentication"></a><a href="#setting-up-email-and-password-authentication" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting up Email and Password Authentication</h2>
+<p>In your Firebase project, navigate to &quot;Authentication&quot; &gt; &quot;Sign-in method&quot; &gt; &quot;Email/Password&quot; and set &quot;Email/Password&quot; to <em>Enabled</em>. This enables all email and password features built into CardinalKit, including a &quot;Forgot Your Password&quot; section in the &quot;Login&quot; step.</p>
+<p>In the <code>CKConfiguration.plist</code> file, set &quot;Login-Passwordless&quot; to <code>0</code> and &quot;Login-Sign-In-With-Apple&quot; &gt; &quot;Enabled&quot; to <code>0</code>.</p>
+<p><br><img src="assets/email_authentication.png" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" width="100%"><br></p>
+<h2><a class="anchor" aria-hidden="true" id="setting-up-dynamic-links"></a><a href="#setting-up-dynamic-links" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting up Dynamic Links</h2>
+<p>Dynamic links, the process which enables your users to access your application and authenticate themselves simply by clicking on a link sent to them via email, is a common choice for research apps.</p>
+<h3><a class="anchor" aria-hidden="true" id="1-add-relevent-ids-to-firebase"></a><a href="#1-add-relevent-ids-to-firebase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Add Relevent IDs to Firebase</h3>
+<p>The first step is to add your Apple Team ID and a random App Store ID to Firebase settings. This informations is required to use dynamic links.</p>
+<p>You can find your Team ID in your <a href="https://developer.apple.com/account/#/membership">Apple Developer Account Membership Details</a>. This link will get you to your &quot;Membership Details&quot;, just scroll down to Team ID and copy it down.</p>
+<p>Go to your Firebase &quot;Project Settings&quot; by clicking the gear icon in the top left and scroll down to the &quot;Your Apps&quot; subsection. Click the pencil icon next to &quot;App Store ID&quot; and &quot;Team ID&quot; and change them to appropriate values. Under App Store ID, use 292922029.</p>
+<p><br><img src="assets/1.gif" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" width="100%"><br></p>
+<h3><a class="anchor" aria-hidden="true" id="2-create-and-whitelist-a-dynamic-link"></a><a href="#2-create-and-whitelist-a-dynamic-link" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Create and Whitelist a Dynamic Link</h3>
+<p>Now we can create a dynamic link. Navigate to the &quot;Dynamic Links&quot; section in Firebase either from the main page or by the scrolling down on the panel on the left side. Create a new URL prefix.</p>
+<p>Firebase will allow to use your own URL but for this project, just type in your project name (or some unique variant) and choose the URL appended by &quot;.<em>page.link</em>&quot; recommended by Firebase. Once you get a link, write it down for later.</p>
+<p><br><img src="assets/2.gif" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" width="100%"><br></p>
+<p>Navigate to the Authentication tab from earlier and whitelist your unique dynamic link prefix that you just created. Click &quot;Add Domain&quot; under the header Authorized Domains and type in your prefix.</p>
+<p><br><img src="assets/3.gif" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" width="100%"><br></p>
+<p>There will be a link appended by &quot;<em>firebase.app</em>&quot; in the Authorized Domains category. Write this link down for later. Copy this link, navigate to the Dynamic Links tab, and create a new dynamic link using that <em>firebase.app</em> link as the &quot;Deep Link URL&quot;. Name the link &quot;Open App&quot;. To define iOS link behavior, select “Open the deep link in your iOS App” and select your App Bundle ID from drop down. We can ignore the next two steps (Android link creation and marketing) and jump straight to generating the link.</p>
+<p><br><img src="assets/5.gif" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" width="100%"><br></p>
+<h3><a class="anchor" aria-hidden="true" id="3-set-up-dynamic-links-in-xcode"></a><a href="#3-set-up-dynamic-links-in-xcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Set up Dynamic Links in Xcode</h3>
+<p>Let's go back into Xcode and set up our app to interpret our dynamic links. Under the &quot;Signing &amp; Capabilities&quot; tab of the app replace the existing Associated Domain with &quot;<em>applinks:[your-link].page.link</em>&quot; There should only be one Associated Domain at the end.</p>
+<p><br><img src="assets/6.gif" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" width="100%"><br></p>
+<p>Head over to the &quot;Info&quot; tab of the App and scroll down to the bottom. Open up &quot;URL Types&quot; and enter your App Bundle ID under URL Schemes. Under Identifier, write something unique like your Bundle ID + &quot;.firebase&quot;.</p>
+<p><br><img src="assets/7.gif" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" width="100%"><br></p>
+<p>Open up the &quot;CKStudyUser.swift&quot; file in &quot;CardinalKit-Example&quot; &gt; &quot;Components&quot; &gt; &quot;Account&quot;. Change the actionCodeSettings.url URL on line 79 to match the &quot;<em>firebase.app</em>&quot; link that you found earlier in the Authorized Domains section in Firebase.</p>
+<p><br><img src="assets/8.gif" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" width="100%"><br></p>
+<p>We need to also edit the &quot;Info.plist&quot; file &quot;CardinalKit-Example&quot; &gt; &quot;Supporting Files&quot;. Under the &quot;FirebaseDynamicLinksCustomDomains&quot;, make sure there is only 1 domain: your <em>page.link</em> prefix domain from earlier.</p>
+<p><br><img src="assets/9.gif" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" width="100%"><br></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/setup_cloud"><span class="arrow-prev">← </span><span>Set Up Application Infrastructure</span></a><a class="docs-next button" href="/docs/ckconfig"><span>App Customization Guide</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#setting-up-email-and-password-authentication">Setting up Email and Password Authentication</a></li><li><a href="#setting-up-dynamic-links">Setting up Dynamic Links</a><ul class="toc-headings"><li><a href="#1-add-relevent-ids-to-firebase">1. Add Relevent IDs to Firebase</a></li><li><a href="#2-create-and-whitelist-a-dynamic-link">2. Create and Whitelist a Dynamic Link</a></li><li><a href="#3-set-up-dynamic-links-in-xcode">3. Set up Dynamic Links in Xcode</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="CardinalKit" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/getting_started">Getting Started</a><a href="/resources">Resources</a></div><div><h5>Community</h5><a href="https://github.com/CardinalKit/CardinalKit/">GitHub</a><a href="http://biodesign.stanford.edu/">Byers Center for Biodesign</a><a href="/community">Community</a></div></section><section class="copyright">Copyright © 2021 CardinalKit</section></footer></div></body></html>

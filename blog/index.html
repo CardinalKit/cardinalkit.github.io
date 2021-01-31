@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Blog · CardinalKit</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content=""/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Blog · CardinalKit"/><meta property="og:type" content="website"/><meta property="og:url" content="https://cardinalkit.org/"/><meta property="og:description" content=""/><meta property="og:image" content="https://cardinalkit.org/img/main.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://cardinalkit.org/img/main.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://cardinalkit.org/blog/atom.xml" title="CardinalKit Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://cardinalkit.org/blog/feed.xml" title="CardinalKit Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="blog"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="CardinalKit"/><h2 class="headerTitleWithLogo">CardinalKit</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/getting_started" target="_self">Docs</a></li><li class=""><a href="/community" target="_self">Community</a></li><li class=""><a href="/resources" target="_self">Resources</a></li><li class="siteNavGroupActive siteNavItemActive"><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Recent Posts</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Recent Posts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/blog/2020/09/25/cardinalkit-buildathon">CardinalKit Buildathon 2020</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer postContainer blogContainer"><div class="wrapper"><div class="posts"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle"><a href="/blog/2020/09/25/cardinalkit-buildathon">CardinalKit Buildathon 2020</a></h1><p class="post-meta">September 25, 2020</p><div class="authorBlock"><p class="post-authorName"><a href="http://twitter.com/ck_framework" target="_blank" rel="noreferrer noopener">CardinalKit Team</a></p></div></header><article class="post-content"><div><span><p><img src="https://i.imgur.com/iSI71SE.png" alt="header"></p>
+<p>Two weekends ago, we held the inaugural CardinalKit Buildathon in partnership with SHIFT. It was a fun-packed, action-filled, virtual weekend where participants learned about digital health, important problems in healthcare, and CardinalKit. Here are some numbers from the Buildathon.</p>
+</span></div><div class="read-more"><a class="button" href="/blog/2020/09/25/cardinalkit-buildathon">Read More</a></div></article></div><div class="docs-prevnext"></div></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="CardinalKit" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/getting_started">Getting Started</a><a href="/resources">Resources</a></div><div><h5>Community</h5><a href="https://github.com/CardinalKit/CardinalKit/">GitHub</a><a href="http://biodesign.stanford.edu/">Byers Center for Biodesign</a><a href="/community">Community</a></div></section><section class="copyright">Copyright © 2021 CardinalKit</section></footer></div></body></html>

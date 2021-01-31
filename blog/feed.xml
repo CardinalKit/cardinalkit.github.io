@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>CardinalKit Blog</title>
+        <link>https://cardinalkit.org/blog</link>
+        <description>The best place to stay up-to-date with the latest CardinalKit news and events.</description>
+        <lastBuildDate>Fri, 25 Sep 2020 06:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <image>
+            <title>CardinalKit Blog</title>
+            <url>https://cardinalkit.org/img/favicon.ico</url>
+            <link>https://cardinalkit.org/blog</link>
+        </image>
+        <copyright>Copyright © 2021 CardinalKit</copyright>
+        <item>
+            <title><![CDATA[CardinalKit Buildathon 2020]]></title>
+            <link>https://cardinalkit.org/blog/2020/09/25/cardinalkit-buildathon.html</link>
+            <guid>https://cardinalkit.org/blog/2020/09/25/cardinalkit-buildathon.html</guid>
+            <pubDate>Fri, 25 Sep 2020 06:00:00 GMT</pubDate>
+            <description><![CDATA[<p><img src="https://i.imgur.com/iSI71SE.png" alt="header"></p>
+<p>Two weekends ago, we held the inaugural CardinalKit Buildathon in partnership with SHIFT. It was a fun-packed, action-filled, virtual weekend where participants learned about digital health, important problems in healthcare, and CardinalKit. Here are some numbers from the Buildathon.</p>
+]]></description>
+        </item>
+    </channel>
+</rss>
