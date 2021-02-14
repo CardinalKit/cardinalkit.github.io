@@ -88,22 +88,14 @@
 <h2><a class="anchor" aria-hidden="true" id="add-custom-rules-to-the-firebase-database"></a><a href="#add-custom-rules-to-the-firebase-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add Custom Rules to the Firebase Database</h2>
 <p><br><img src="assets/10.gif" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" width="100%"><br></p>
 <p>The final step is to allow authorized users to upload data to Firebase. Navigate to the Database tab in your Firebase dashboard. Find the &quot;Rules&quot; section and edit the text to match the following rule set:</p>
-<pre><code class="hljs">rules_version = '2';
+<pre><code class="hljs css language-JavaScript">rules_version = <span class="hljs-string">'2'</span>;
 service cloud.firestore {
-  match /databases/{database}/documents {
-
-    // This rule allows anyone on the internet to view, edit, and delete
-    // all data in your Firestore database. It is useful for getting
-    // started, but it is configured to expire after 30 days because it
-    // leaves your app open to attackers. At that time, all client
-    // requests to your Firestore database will be denied.
-    //
-    // Make sure to write security rules for your app before that time, or else
-    // your app will lose access to your Firestore database
-    match /{document=**} {
-      allow read, write: if request.auth != null;
+  match /databases/{database}/documents/studies/{studyId}/users {
+    match /{userId}/{<span class="hljs-built_in">document</span>=**} {
+      allow read, <span class="hljs-attr">write</span>: <span class="hljs-keyword">if</span> request.auth.uid != <span class="hljs-literal">null</span>;
     }
   }
+}
 </code></pre>
 <p>Congrats! You're now set up to use CardinalKit as a starting point for your research app - run the app within Xcode and test it out!</p>
 <p><br><img src="assets/celebrate.svg" width="400"><br></p>
